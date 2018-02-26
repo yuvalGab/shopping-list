@@ -41,7 +41,7 @@ const reducer = (state = initialState, { type, payload }) => {
         msg: payload
       }
     default:
-      return state;
+      return state
   }
 }
 
