@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import './App.css'
-import Login from './pages/login'
+import { Layout } from 'antd';
+import Routes from './Routes'
+import Header from './common/Header'
+import Footer from './common/Footer'
+
+const { Content } = Layout
 
 class App extends Component {
   render() {
     return (
-     <div>
-      <Router>
-        <Switch>
-          <Route path= "/" exact render={() => (
-            <Redirect to="/login" />
-          )} />
-          <Route path="/login" component={Login} />
-        </Switch> 
-      </Router>
-     </div>
+      <Layout>
+        <Header />
+        <Content className="content">
+          <Routes />
+        </Content>
+        <Footer />
+      </Layout>
     )
   }
 }

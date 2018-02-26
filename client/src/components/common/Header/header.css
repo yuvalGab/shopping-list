@@ -1,0 +1,10 @@
+
+.header {
+  height: 40px;
+  line-height: inherit;
+}
+
+h1 {
+  font-size: 24px;
+  color: white;
+}
