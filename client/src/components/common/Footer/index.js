@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './footer.css'
-import { Layout } from 'antd'
+import { Layout, Icon } from 'antd'
 
 const { Footer: FooterLayout } = Layout
 
@@ -8,7 +8,8 @@ class Footer extends Component {
   render() {
     return (
       <FooterLayout className="footer">
-        footer text
+        <Icon type="copyright" />
+        <span>developed by Yuval Gabian</span>
       </FooterLayout>  
     )
   }

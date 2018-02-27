@@ -2,3 +2,7 @@
 .footer {
   height: 20px;
 }
+
+.footer > span {
+  margin: 0px 12px;
+}
