@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './loginForm.css'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
+import { Link } from 'react-router-dom'
 
 const FormItem = Form.Item;
 
@@ -46,7 +47,7 @@ class LoginForm extends Component {
           <Button className="login-form-button" type="primary" htmlType="submit">
             Log in
           </Button>
-          Or <a href="">register now!</a>
+          Or <Link to="/register">register now!</Link>
         </FormItem>
       </Form>
     )

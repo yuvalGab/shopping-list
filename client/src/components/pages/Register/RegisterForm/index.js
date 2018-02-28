@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './registerForm.css'
 import { Form, Input, Button } from 'antd'
+import { Link } from 'react-router-dom'
 
 const FormItem = Form.Item
 
@@ -95,6 +96,7 @@ class RegisterForm extends Component {
         <FormItem>
           <Button type="primary" htmlType="submit">Register</Button>
         </FormItem>
+        Or <Link to="/login">login now!</Link>
       </Form>
     )
   }
