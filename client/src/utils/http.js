@@ -1,6 +1,14 @@
 
+function api(path, method, data) {
+  const headers = {
+    "Content-type": "application/json"
+  }
+  const body = JSON.stringify(data)
+  return fetch(path, { method, headers, body})
+}
+
 function post(path, data) {
-  return fetch(path, { method: 'post', body: JSON.stringify(data) })
+  return api(path, 'post', data)
 }
 
 const register = data => (
