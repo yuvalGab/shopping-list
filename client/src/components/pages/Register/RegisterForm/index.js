@@ -71,6 +71,15 @@ class RegisterForm extends Component {
             <Input />
           )}
         </FormItem>
+        <FormItem label="Username">
+          {getFieldDecorator('username', {
+            rules: [{
+              required: true, message: 'Please input your Username!'
+            }]
+          })(
+            <Input />
+          )}
+        </FormItem>
         <FormItem label="Password">
           {getFieldDecorator('password', {
             rules: [{
