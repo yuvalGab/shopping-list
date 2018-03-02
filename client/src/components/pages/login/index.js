@@ -14,7 +14,7 @@ class Login extends Component {
       <div className="login-page">
         <h2>login</h2>
         <LoginFrom onSubmit={login} />
-        {error && <p className="error">An error occurred</p>}
+        {error && <p className="error">{error}</p>}
         {loading && <Spin />}
       </div> 
     )

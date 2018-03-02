@@ -14,7 +14,7 @@ class Register extends Component {
       <div className="register-page">
         <h2>register</h2>
         <RegisterForm onSubmit={register} />
-        {error && <p className="error">An error occurred</p>}
+        {error && <p className="error">{error}</p>}
         {loading && <Spin />}
       </div>
     )

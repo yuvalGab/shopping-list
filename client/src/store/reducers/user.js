@@ -17,7 +17,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        error: true
+        error: payload
       }
     case 'REGISTER_FULFILLED':
     case 'LOGIN_FULFILLED':
