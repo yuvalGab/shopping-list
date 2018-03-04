@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
+import { Router, Switch, Route, Redirect} from 'react-router-dom'
+import createBrowserHistory from 'history/createBrowserHistory'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import List from './pages/List'
 
+const history = createBrowserHistory()
+
 class Routes extends Component {
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <Switch>
           <Route path= "/" exact render={() => (
             <Redirect to="/login" />

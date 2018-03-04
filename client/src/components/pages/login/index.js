@@ -4,9 +4,22 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as userActions from '../../../store/actions/user'
 import LoginFrom from './LoginForm'
-import { Spin } from 'antd'
+import { Spin, notification } from 'antd'
 
 class Login extends Component {
+  componentWillReceiveProps(nextProps) {
+    const { loading, history } = this.props
+    const { loading: nextLoading, error } = nextProps
+    if (loading && !nextLoading && !error) {
+      notification.success({
+        message: 'You have successfully signed in to your account!',
+        description: 'You can now edit your shopping list.'
+      })
+
+      history.push('/list')
+    }
+  }
+
   render() {
     const { loading, error, userActions: { login } } = this.props
     
