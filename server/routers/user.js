@@ -10,7 +10,7 @@ router.post('/register', async (req, res) => {
     const { username, password } = req.body
     const user = await User.findOne({ username })
     if (user) {
-     res.send({ error: 'user already exists' })
+     return res.send({ error: 'user already exists' })
     }
 
     const salt = await bcrypt.genSalt()
@@ -18,7 +18,7 @@ router.post('/register', async (req, res) => {
     req.body.password = hash
 	  await User.create(req.body)
   } catch (err) {
-    res.sendStatus(500)
+    return res.sendStatus(500)
   }
 
   res.sendStatus(201)
@@ -29,16 +29,16 @@ router.post('/login', async (req, res) => {
     const { username, password } = req.body
     const user = await User.findOne({ username })
     if (!user) {
-      res.send({ error: 'user does not exist' })
+      return res.send({ error: 'user does not exist' })
     }
 
-    const result = await bcrypt.compare(password, user.password)    
+    const result = await bcrypt.compare(password, user.password)
     if (!result) {
-      res.send({ error: 'password does not match' })
+      return res.send({ error: 'password does not match' })
     }
 
   } catch (err) {
-    res.sendStatus(500)
+    return res.sendStatus(500)
   }
   
   res.send({ error: '' })
