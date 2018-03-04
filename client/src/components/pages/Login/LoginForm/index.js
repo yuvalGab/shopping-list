@@ -24,14 +24,26 @@ class LoginForm extends Component {
       <Form  className="login-form" onSubmit={this.handleSubmit}>
         <FormItem>
           {getFieldDecorator('username', {
-            rules: [{ required: true, message: 'Please input your Psername!' }]
+            rules: [{ 
+              required: true, message: 'Please input your Psername' }, 
+            {
+              min: 5, message: 'Username must contain at least 5 characters'
+            }, {
+              max: 12, message: 'A Username can contain up to 12 characters'
+            }]
           })(
             <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
           )}
         </FormItem>
         <FormItem>
           {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }]
+            rules: [{ 
+              required: true, message: 'Please input your Password' }, 
+            {
+              min: 6, message: 'Password must contain at least 6 characters'
+            }, {
+              max: 20, message: 'A Password can contain up to 20 characters'
+            }]
           })(
             <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
           )}

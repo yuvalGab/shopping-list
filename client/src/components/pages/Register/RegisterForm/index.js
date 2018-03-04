@@ -54,7 +54,9 @@ class RegisterForm extends Component {
         <FormItem label="Full Name">
           {getFieldDecorator('fullName', {
             rules: [{
-              required: true, message: 'Please input your Full Name!'
+              required: true, message: 'Please input your Full Name',
+            }, {
+              max: 20, message: 'A Full Name can contain up to 20 characters'
             }]
           })(
             <Input />
@@ -63,9 +65,9 @@ class RegisterForm extends Component {
         <FormItem label="E-mail">
           {getFieldDecorator('email', {
             rules: [{
-              type: 'email', message: 'The input is not valid E-mail!'
+              type: 'email', message: 'The input is not valid E-mail'
             }, {
-              required: true, message: 'Please input your E-mail!'
+              required: true, message: 'Please input your E-mail'
             }]
           })(
             <Input />
@@ -74,7 +76,11 @@ class RegisterForm extends Component {
         <FormItem label="Username">
           {getFieldDecorator('username', {
             rules: [{
-              required: true, message: 'Please input your Username!'
+              required: true, message: 'Please input your Username'
+            }, {
+              min: 5, message: 'Username must contain at least 5 characters'
+            }, {
+              max: 12, message: 'A Username can contain up to 12 characters'
             }]
           })(
             <Input />
@@ -83,9 +89,13 @@ class RegisterForm extends Component {
         <FormItem label="Password">
           {getFieldDecorator('password', {
             rules: [{
-              required: true, message: 'Please input your password!'
+              required: true, message: 'Please input your password'
             }, {
               validator: this.checkConfirm
+            }, {
+              min: 6, message: 'Password must contain at least 6 characters'
+            }, {
+              max: 20, message: 'A Password can contain up to 20 characters'
             }]
           })(
             <Input type="password" />
@@ -94,7 +104,7 @@ class RegisterForm extends Component {
         <FormItem label="Confirm Password">
           {getFieldDecorator('confirmPassword', {
             rules: [{
-              required: true, message: 'Please confirm your password!',
+              required: true, message: 'Please confirm your password',
             }, {
               validator: this.checkPassword
             }]
