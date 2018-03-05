@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const path = require('path')
 const app = express()
-
+const checkAuth = require('./utils/checkAuth')
 const userRouter = require('./routers/user')
 
 app.use(bodyParser.json())
@@ -13,6 +13,7 @@ app.use(session({
   saveUninitialized: true
 }))
 app.use(express.static('../client/build'))
+app.use(checkAuth)
 app.use('/api/user', userRouter)
 
 app.all('*', (req, res) => {

@@ -51,4 +51,9 @@ router.post('/login', async (req, res) => {
   res.send({ error: '' })
 })
 
+router.get('/isLogedIn', (req, res) => {
+  const { userId } = req.session
+  res.send(!!userId)
+})
+
 module.exports = router
