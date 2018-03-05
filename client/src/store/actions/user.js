@@ -9,3 +9,8 @@ export const login = data => ({
   type: 'LOGIN',
   payload: api.login(data)
 })
+
+export const isLogedIn = () => ({
+  type: 'IS_LOGED_IN',
+  payload: api.isLogedIn()
+})

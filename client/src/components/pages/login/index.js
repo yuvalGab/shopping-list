@@ -7,10 +7,13 @@ import LoginFrom from './LoginForm'
 import { Spin, notification } from 'antd'
 
 class Login extends Component {
+  componentDidMount() {
+    this.props.userActions.isLogedIn()
+  }
+
   componentWillReceiveProps(nextProps) {
-    const { loading, history } = this.props
-    const { loading: nextLoading, error } = nextProps
-    if (loading && !nextLoading && !error) {
+    const { isLogedIn, history } = nextProps
+    if (isLogedIn) {
       notification.success({
         message: 'You have successfully signed in to your account!',
         description: 'You can now edit your shopping list.'
@@ -40,5 +43,5 @@ export default connect(
   }),
   dispatch => ({
       userActions: bindActionCreators(userActions, dispatch)
-    })
+  })
 )(Login)

@@ -1,5 +1,5 @@
 
-function api(path, method, data) {
+function api(path, method = 'get', data) {
   return new Promise((resolve, reject) => {
     const headers = {
       "Content-type": "application/json"
@@ -34,6 +34,10 @@ function api(path, method, data) {
   })
 }
 
+function get(path) {
+  return api(path)
+}
+
 function post(path, data) {
   return api(path, 'post', data)
 }
@@ -46,7 +50,12 @@ const login = data => (
   post('/api/user/login', data)
 )
 
+const isLogedIn = () => (
+  get('/api/user/isLogedIn')
+)
+
 export default {
   register,
-  login
+  login,
+  isLogedIn
 }
