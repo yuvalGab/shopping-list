@@ -5,7 +5,7 @@ function api(path, method, data) {
       "Content-type": "application/json"
     }
     const body = JSON.stringify(data)
-    return fetch(path, { method, headers, body})
+    return fetch(path, { method, headers, body, credentials: 'include' })
     .then(res => { 
       const { status } = res
       const isJson = status === 200

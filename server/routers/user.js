@@ -26,7 +26,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const { username, password } = req.body
+    const { username, password, remember } = req.body
     const user = await User.findOne({ username })
     if (!user) {
       return res.send({ error: 'user does not exist' })
@@ -35,6 +35,13 @@ router.post('/login', async (req, res) => {
     const result = await bcrypt.compare(password, user.password)
     if (!result) {
       return res.send({ error: 'password does not match' })
+    }
+
+    req.session.userId = user._id
+    if (remember) {
+      req.session.cookie.maxAge = 60480000 // week
+    } else {
+      req.session.cookie.maxAge = false
     }
 
   } catch (err) {
