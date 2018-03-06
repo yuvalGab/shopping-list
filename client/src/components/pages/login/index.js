@@ -7,10 +7,6 @@ import LoginFrom from './LoginForm'
 import { Spin, notification } from 'antd'
 
 class Login extends Component {
-  componentDidMount() {
-    this.props.userActions.isLogedIn()
-  }
-
   componentWillReceiveProps(nextProps) {
     const { isLogedIn, history } = nextProps
     if (isLogedIn) {
