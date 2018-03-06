@@ -56,4 +56,9 @@ router.get('/isLogedIn', (req, res) => {
   res.send(!!userId)
 })
 
+router.get('/logout', (req, res) => {
+  req.session.userId = false
+  res.send(false)
+})
+
 module.exports = router

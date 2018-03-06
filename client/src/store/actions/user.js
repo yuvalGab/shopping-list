@@ -14,3 +14,8 @@ export const isLogedIn = () => ({
   type: 'IS_LOGED_IN',
   payload: api.isLogedIn()
 })
+
+export const logout = () => ({
+  type: 'LOGOUT',
+  payload: api.logout()
+})

@@ -54,8 +54,13 @@ const isLogedIn = () => (
   get('/api/user/isLogedIn')
 )
 
+const logout = () => (
+  get('/api/user/logout')
+)
+
 export default {
   register,
   login,
-  isLogedIn
+  isLogedIn,
+  logout
 }

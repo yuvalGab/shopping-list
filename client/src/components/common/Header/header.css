@@ -1,5 +1,6 @@
 
 .header {
+  position: relative;
   height: 40px;
   line-height: inherit;
 }
@@ -7,4 +8,14 @@
 h1 {
   font-size: 24px;
   color: white;
+}
+
+.header > .anticon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
 }

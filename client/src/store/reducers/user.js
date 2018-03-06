@@ -9,6 +9,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case 'REGISTER_PENDING':
     case 'LOGIN_PENDING':
     case 'IS_LOGED_IN_PENDING':
+    case 'LOGOUT_PENDING':
       return {
         ...state,
         loading: true,
@@ -17,6 +18,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case 'REGISTER_REJECTED':
     case 'LOGIN_REJECTED':
     case 'IS_LOGED_IN_REJECTED':
+    case 'LOGOUT_REJECTED':
       return {
         ...state,
         loading: false,
@@ -36,6 +38,7 @@ const reducer = (state = initialState, { type, payload }) => {
         isLogedIn: true
       }
     case 'IS_LOGED_IN_FULFILLED':
+    case 'LOGOUT_FULFILLED':
       return {
         ...state,
         loading: false,
