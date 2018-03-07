@@ -5,6 +5,7 @@ const path = require('path')
 const app = express()
 const checkAuth = require('./utils/checkAuth')
 const userRouter = require('./routers/user')
+const itemRouter = require('./routers/item')
 
 app.use(bodyParser.json())
 app.use(session({
@@ -15,6 +16,7 @@ app.use(session({
 app.use(express.static('../client/build'))
 app.use(checkAuth)
 app.use('/api/user', userRouter)
+app.use('/api/item', itemRouter)
 
 app.all('*', (req, res) => {
   res.sendFile(path.resolve('../client/build/index.html'))
