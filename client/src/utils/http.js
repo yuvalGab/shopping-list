@@ -58,9 +58,14 @@ const logout = () => (
   get('/api/user/logout')
 )
 
+const addItem = data => (
+  post('/api/item/add', data)
+)
+
 export default {
   register,
   login,
   isLogedIn,
-  logout
+  logout,
+  addItem
 }

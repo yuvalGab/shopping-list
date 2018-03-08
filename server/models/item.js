@@ -5,7 +5,7 @@ var itemSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
-    maxlength: 50
+    maxlength: 100
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
