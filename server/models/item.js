@@ -7,6 +7,11 @@ var itemSchema = mongoose.Schema({
     required: true,
     maxlength: 100
   },
+  selected: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true

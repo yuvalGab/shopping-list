@@ -29,7 +29,7 @@ function api(path, method = 'get', data) {
         reject(statusText)
       }
 
-      resolve(res)
+      resolve(res.data)
     })
   })
 }
@@ -62,10 +62,15 @@ const addItem = data => (
   post('/api/item/add', data)
 )
 
+const getAllItems = () => (
+  get('/api/item/getAll')
+)
+
 export default {
   register,
   login,
   isLogedIn,
   logout,
-  addItem
+  addItem,
+  getAllItems
 }
