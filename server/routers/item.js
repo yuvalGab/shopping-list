@@ -29,7 +29,18 @@ router.put('/edit', (req, res) => {
   res.send(true)
 })
 
-router.delete('/delete', (req, res) => {
+router.delete('/deleteOne/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    await Item.deleteOne({ _id: id })
+  } catch (err) {
+    return res.sendStatus(500)
+  }
+
+ res.sendStatus(204)
+})
+
+router.delete('/deleteSelected', (req, res) => {
   res.send(true)
 })
 

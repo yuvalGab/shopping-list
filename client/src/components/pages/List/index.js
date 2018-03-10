@@ -21,14 +21,25 @@ class List extends Component {
     })
   }
 
+  deleteItem(id) {
+    this.props.itemActions.deleteItem(id).then(() => {
+      this.getAllItems()
+    })
+  }
+
   render() {
     const { list } = this.props
 
     return (
       <div className="list-page">
         <AddItemForm onSubmit={this.addItem.bind(this)} />
+        <button>delete all selected items</button>
         {list.map((value, index) => (
-          <Item key={index} data={value} />
+          <Item 
+            key={index}
+            data={value} 
+            onDelete={this.deleteItem.bind(this)}
+          />
         ))}
       </div>
     )

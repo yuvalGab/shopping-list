@@ -8,6 +8,7 @@ const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'ADD_ITEM_PENDING':
     case 'GET_ALL_ITEMS_PENDING':
+    case 'DELETE_ITEM_PENDING':
       return {
         ...state,
         loading: true,
@@ -15,12 +16,14 @@ const reducer = (state = initialState, { type, payload }) => {
       }
     case 'ADD_ITEM_REJECTED':
     case 'GET_ALL_ITEMS_REJECTED':
-      return {
+    case 'DELETE_ITEM_REJECTED':
+     return {
         ...state,
         loading: false,
         error: payload
       }
     case 'ADD_ITEM_FULFILLED':
+    case 'DELETE_ITEM_FULFILLED':
       return {
         ...state,
         loading: false,

@@ -9,3 +9,8 @@ export const getAllItems = () => ({
   type: 'GET_ALL_ITEMS',
   payload: api.getAllItems()
 })
+
+export const deleteItem = id => ({
+  type: 'DELETE_ITEM',
+  payload: api.deleteItem(id)
+})
