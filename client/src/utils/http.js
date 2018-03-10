@@ -82,6 +82,10 @@ const editItem = data => (
   put('/api/item/edit', data)
 )
 
+const deleteSelected = () => (
+  remove('/api/item/deleteSelected')
+)
+
 export default {
   register,
   login,
@@ -90,5 +94,6 @@ export default {
   addItem,
   getAllItems,
   deleteItem,
-  editItem
+  editItem,
+  deleteSelected
 }

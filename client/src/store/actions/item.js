@@ -19,3 +19,8 @@ export const editItem = data => ({
   type: 'EDIT_ITEM',
   payload: api.editItem(data)
 })
+
+export const deleteSelected = () => ({
+  type: 'DELETE_SELECTED',
+  payload: api.deleteSelected()
+})

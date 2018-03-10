@@ -48,8 +48,15 @@ router.delete('/deleteOne/:id', async (req, res) => {
  res.sendStatus(204)
 })
 
-router.delete('/deleteSelected', (req, res) => {
-  res.send(true)
+router.delete('/deleteSelected', async (req, res) => {
+  try {
+    const { userId } = req.session
+    await Item.deleteMany({ userId, selected: true })
+  } catch (err) {
+    return send.sendStatus(500)
+  }
+
+  res.sendStatus(204)
 })
 
 module.exports = router

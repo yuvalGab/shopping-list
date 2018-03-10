@@ -33,13 +33,23 @@ class List extends Component {
     })
   }
 
+  deleteSelected() {
+    this.props.itemActions.deleteSelected().then(() => {
+      this.getAllItems()
+    })
+  }
+
   render() {
     const { list } = this.props
 
     return (
       <div className="list-page">
         <AddItemForm onSubmit={this.addItem.bind(this)} />
-        <button>delete all selected items</button>
+        <button 
+          onClick={this.deleteSelected.bind(this)}
+        >
+          delete all selected items
+        </button>
         {list.map((value, index) => (
           <Item 
             key={index}

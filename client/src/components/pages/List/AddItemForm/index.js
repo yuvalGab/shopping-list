@@ -7,11 +7,12 @@ const FormItem = Form.Item
 
 class AddItemForm extends Component {
   handleSubmit = e => {
-    const { form: { validateFields }, onSubmit } = this.props
+    const { form: { validateFields, resetFields }, onSubmit } = this.props
     e.preventDefault()
     validateFields((err, values) => {
       if (!err) {
         onSubmit(values)
+        resetFields()
       }
     })
   }

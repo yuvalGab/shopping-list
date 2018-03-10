@@ -10,6 +10,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case 'GET_ALL_ITEMS_PENDING':
     case 'DELETE_ITEM_PENDING':
     case 'EDIT_ITEM_PENDING':
+    case 'DELETE_SELECTED_PENDING':
       return {
         ...state,
         loading: true,
@@ -19,6 +20,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case 'GET_ALL_ITEMS_REJECTED':
     case 'DELETE_ITEM_REJECTED':
     case 'EDIT_ITEM_REJECTED':
+    case 'DELETE_SELECTED_REJECTED':
      return {
         ...state,
         loading: false,
@@ -27,6 +29,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case 'ADD_ITEM_FULFILLED':
     case 'DELETE_ITEM_FULFILLED':
     case 'EDIT_ITEM_FULFILLED':
+    case 'DELETE_SELECTED_FULFILLED':
       return {
         ...state,
         loading: false,
