@@ -42,8 +42,12 @@ function post(path, data) {
   return api(path, 'post', data)
 }
 
-function remove(path, data) {
+function remove(path) {
   return api(path, 'delete')
+}
+
+function put(path, data) {
+  return api(path, 'put', data)
 }
 
 const register = data => (
@@ -74,6 +78,10 @@ const deleteItem = id => (
   remove(`/api/item/deleteOne/${id}`)
 )
 
+const editItem = data => (
+  put('/api/item/edit', data)
+)
+
 export default {
   register,
   login,
@@ -81,5 +89,6 @@ export default {
   logout,
   addItem,
   getAllItems,
-  deleteItem
+  deleteItem,
+  editItem
 }

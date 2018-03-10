@@ -27,6 +27,12 @@ class List extends Component {
     })
   }
 
+  selectItem(id, value) {
+    this.props.itemActions.editItem({ _id: id, selected: value}).then(() => {
+      this.getAllItems()
+    })
+  }
+
   render() {
     const { list } = this.props
 
@@ -39,6 +45,7 @@ class List extends Component {
             key={index}
             data={value} 
             onDelete={this.deleteItem.bind(this)}
+            onSelect={this.selectItem.bind(this)}
           />
         ))}
       </div>

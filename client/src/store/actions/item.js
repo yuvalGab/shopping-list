@@ -14,3 +14,8 @@ export const deleteItem = id => ({
   type: 'DELETE_ITEM',
   payload: api.deleteItem(id)
 })
+
+export const editItem = data => ({
+  type: 'EDIT_ITEM',
+  payload: api.editItem(data)
+})

@@ -25,8 +25,16 @@ router.post('/add', async (req, res) => {
   res.sendStatus(201)
 })
 
-router.put('/edit', (req, res) => {
-  res.send(true)
+router.put('/edit', async (req, res) => {
+  try {
+    const { _id } = req.body
+    delete req.body._id
+    await Item.updateOne({ _id }, { ...req.body })
+  } catch (err) {
+    return res.sendStatus(500)
+  }
+
+  res.sendStatus(204)
 })
 
 router.delete('/deleteOne/:id', async (req, res) => {

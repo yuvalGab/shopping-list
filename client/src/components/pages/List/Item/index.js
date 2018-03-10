@@ -11,14 +11,19 @@ class Item extends Component {
         title, 
         selected 
       }, 
-      onDelete 
+      onDelete,
+      onSelect
     } = this.props
 
     return (
       <div>
-        <button onClick={() => onDelete(id)}>X</button>
-        {title}
-        <input type="checkbox" value={selected} />  
+        <input 
+          type="checkbox" 
+          checked={selected}
+          onChange={() => onSelect(id, !selected)} 
+        />    
+        <span>{title}</span>
+        <span onClick={() => onDelete(id)}>X</span>
       </div>
     )
   }
@@ -26,7 +31,8 @@ class Item extends Component {
 
 Item.propTypes = {
   data: PropTypes.object.isRequired,
-  onDelete: PropTypes.func.isRequired
+  onDelete: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired
 }
 
 export default Item
