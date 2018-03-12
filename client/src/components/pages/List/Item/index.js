@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './item.css'
+import { Checkbox } from 'antd'
 
 class Item extends Component {
   render() {
@@ -16,14 +17,13 @@ class Item extends Component {
     } = this.props
 
     return (
-      <div>
-        <input 
-          type="checkbox" 
+      <div className="item">
+        <Checkbox 
           checked={selected}
           onChange={() => onSelect(id, !selected)} 
         />    
-        <span>{title}</span>
-        <span onClick={() => onDelete(id)}>X</span>
+        <span className="title">{title}</span>
+        <span className="delete" onClick={() => onDelete(id)}>x</span>
       </div>
     )
   }

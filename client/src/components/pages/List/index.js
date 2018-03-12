@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import * as itemActions from '../../../store/actions/item'
 import AddItemForm from './AddItemForm'
 import Item from './Item'
-import { Spin } from 'antd'
+import { Spin, Button } from 'antd'
 
 class List extends Component {
   componentDidMount() {
@@ -50,11 +50,13 @@ class List extends Component {
           {error && <p className="error">{error || 'an error occurred'}</p>}
           {loading && <Spin />} 
         </div>
-        <button 
+        <Button 
+          type="danger"
+          className="delete-selected"
           onClick={this.deleteSelected.bind(this)}
         >
           delete all selected items
-        </button>
+        </Button>
         {list.map((value, index) => (
           <Item 
             key={index}

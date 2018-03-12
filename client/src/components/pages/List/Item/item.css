@@ -1,0 +1,16 @@
+
+.item {
+  max-width: 600px;
+  text-align: left;
+  margin: 12px auto;
+}
+
+.title {
+  font-size: 14px;
+  margin: 0px 12px;
+}
+
+.delete {
+  color: red;
+  cursor: pointer;
+}
