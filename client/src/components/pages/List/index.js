@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import * as itemActions from '../../../store/actions/item'
 import AddItemForm from './AddItemForm'
 import Item from './Item'
+import { Spin } from 'antd'
 
 class List extends Component {
   componentDidMount() {
@@ -40,11 +41,15 @@ class List extends Component {
   }
 
   render() {
-    const { list } = this.props
+    const { loading, error, list } = this.props
 
     return (
       <div className="list-page">
         <AddItemForm onSubmit={this.addItem.bind(this)} />
+        <div style={{ minHeight: 40 }}>
+          {error && <p className="error">{error || 'an error occurred'}</p>}
+          {loading && <Spin />} 
+        </div>
         <button 
           onClick={this.deleteSelected.bind(this)}
         >
